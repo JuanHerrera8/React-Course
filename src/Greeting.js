@@ -1,5 +1,5 @@
- function Greeting() {
-    return <h1>Componente de </h1>;
-  }
+function Greeting({ title }) {
+  return <h1>{title}</h1>;
+}
 
-  export default Greeting
+export default Greeting;
