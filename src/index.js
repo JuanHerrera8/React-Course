@@ -1,12 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
-import Greeting from "./Greeting";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
+function Counter() {
+  const [mensaje, setMensaje] = useState("");
+  const [counter, setCounter] = useState(0);
+
+  useEffect(function () {
+    console.log("render");
+  }, [counter]);
+
+  return (
+    <div>
+      <input onChange={(e) => setMensaje(e.target.value)} />
+      <button onClick={() => {alert("El mensaje es: " + mensaje);}}>
+        Save
+      </button>
+
+      <hr />
+
+      <h1>Counter: {counter} </h1>
+      <button onClick={() => {setCounter(counter + 1);}}>
+        Incrementar
+      </button>
+    </div>
+  );
+}
+
 root.render(
   <>
-    <Greeting title="Hola Mundo" />
-    <Greeting title="Hola React" />
+    <Counter />
   </>
 );
